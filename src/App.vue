@@ -1,10 +1,11 @@
 <template>
-<h1 @click="increase">{{ count }}</h1>
+  <h1 @click="increase">{{ count }}</h1>
+  <div v-if="count > 4">4보다 커야 보임</div>
 </template>
 <script>
 export default {
   data() {
-    return{
+    return {
       count: 0
     }
   },
@@ -16,8 +17,8 @@ export default {
 }
 </script>
 <style>
-  h1{
-    font-size: 30px;
-    color: royalblue;
-  }
+h1 {
+  font-size: 30px;
+  color: royalblue;
+}
 </style>
