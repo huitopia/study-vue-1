@@ -1,42 +1,20 @@
 <template>
-  <h1 @click="increase">{{ count }}</h1>
-  <div v-if="count > 4">4보다 커야 보임</div>
-  <ul>
-    <FruitList
-        v-for="fruit in fruits"
-        :key="fruit"
-        :name="fruit">
-      {{ fruit }}
-    </FruitList>
-  </ul>
+  <h1>{{count}}</h1>
 </template>
 <script>
-import FruitList from "@/components/FruitList.vue";
-
 export default {
-  components: {
-    // : FruitList 생략 가능
-    FruitList
-  },
-  data() {
-    return {
-      count: 0,
-      fruits: ["apple", "banana", "cherry"]
+  data(){
+    return{
+      count:2
     }
   },
-  methods: {
-    increase() {
-      this.count++;
-    }
-  }
+  mounted() {
+    // 화면에 실제 컴포넌트 출력 후 실행
+    // 코드 작성 순서에 상관 없이 created 실행 후 mounted 출력됨
+    console.log("Mounted!")
+  },
+  created() {
+    console.log("Created!")
+  },
 }
 </script>
-<style>
-h1 {
-  color: royalblue;
-}
-
-ul li {
-  color: cadetblue;
-}
-</style>
