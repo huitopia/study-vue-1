@@ -1,32 +1,20 @@
 <template>
-  <h1>{{count}}</h1>
+  <h1
+      v-once
+      @click="add">{{ msg }}</h1>
 </template>
+
 <script>
-export default {
-  data(){
-    return{
-      count:2
+  export default {
+    data(){
+      return{
+        msg: "hello world!"
+      }
+    },
+    methods:{
+      add(){
+        this.msg += "!"
+      }
     }
-  },
-  beforeCreate() {
-    // 컴포넌트 생성되기 직전 실행되는 라이프 사이클
-    // count 출력 시 undefined 출력
-    console.log("beforeCreate", this.count);
-  },
-  created() {
-    // 컴포넌트는 연결되었으나 html과 연결은 안됨
-    console.log("Created!" , this.count)
-  },
-  beforeMount() {
-    // html과 연결이 되기 전 상태로 html 구조 검색 불가
-    console.log("beforeMount");
-    console.log(document.querySelector("h1"))
-  },
-  mounted() {
-    // 화면에 실제 컴포넌트 출력 후 html과 연결되어 실행
-    // 코드 작성 순서에 상관 없이 created 실행 후 mounted 출력됨
-    console.log("Mounted!")
-    console.log(document.querySelector("h1"))
-  },
-}
+  }
 </script>
