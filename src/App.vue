@@ -1,12 +1,17 @@
 <template>
-  <h1 v-bind:class="msg">{{ msg }}</h1>
+  <h1
+      :[attr]="'active'"
+      @[event]="add"
+  >{{ msg }}</h1>
 </template>
 
 <script>
   export default {
     data(){
       return{
-        msg: "active"
+        msg: "active",
+        attr: "class",
+        event: "click"
       }
     },
     methods:{
