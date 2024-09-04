@@ -1,9 +1,17 @@
 <template>
-  <section>
-    <h1></h1>
+  <section v-if="hasFruit">
+    <h1>Fruits</h1>
     <ul>
-      <li v-for="world in helloWorld"
-          :key="world">{{ world }}
+      <li v-for="fruit in fruits"
+          :key="fruit">{{ fruit }}
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h1>Reverse Fruits</h1>
+    <ul>
+      <li v-for="fruit in reverseFruits"
+          :key="fruit">{{ fruit }}
       </li>
     </ul>
   </section>
@@ -13,7 +21,17 @@
 export default {
   data() {
     return {
-      helloWorld: ["apple", "banana", "orange"]
+      fruits: ["apple", "banana", "orange"]
+    }
+  },
+  computed: {
+    hasFruit() {
+      return this.fruits.length > 2
+    },
+    reverseFruits() {
+      return this.fruits.map(fruit => {
+        return fruit.split('').reverse().join('')
+      })
     }
   }
 }
