@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1 @click="changeMessage">{{ msg }}</h1>
   <h1>{{ reverseMessage }}</h1>
 </template>
 <script>
@@ -15,9 +15,17 @@ export default {
       return this.msg.split('').reverse().join('')
     }
   },
+  watch: {
+    msg(newMsg) {
+      console.log("this.msg = newMsg", newMsg)
+    },
+    reverseMessage() {
+      console.log("reverse: ", this.reverseMessage)
+    }
+  },
   methods: {
     changeMessage() {
-      this.msg = "!!"
+      this.msg = "hi"
     }
   }
 }
