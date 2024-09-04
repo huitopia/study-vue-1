@@ -1,26 +1,19 @@
 <template>
   <h1
-      @click="activate"
-      :class="{active: isActive}"
-  >Hello({{ isActive }})</h1>
+      :style="{color, fontSize}"
+      @click="changeStyle"
+  >Hello</h1>
 </template>
 <script>
 export default {
   data() {
     return {
-      isActive: false
-    }
-  },
-  methods: {
-    activate() {
-      this.isActive = true
+      color: "blue",
+      fontSize: "30px"
     }
   }
 }
 </script>
+<style>
 
-<style scoped>
-.active {
-  color: red;
-}
 </style>
